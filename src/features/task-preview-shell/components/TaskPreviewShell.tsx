@@ -13,7 +13,7 @@ export function TaskPreviewShell({
   children,
   eyebrow = "Task card",
   title = "Today's focus",
-  subtitle = "A single highlighted task with due date, tags, and quick actions—styled with Tailwind.",
+  subtitle = "A single highlighted task with due date, tags, and quick actions, styled with Tailwind.",
 }: TaskPreviewShellProps) {
   return (
     <main className="relative min-h-screen overflow-hidden bg-[#0f172a] font-sans text-[#f8fafc]">

@@ -17,7 +17,7 @@ export function TodoCardTags({ tags }: TodoCardTagsProps) {
           key={`${tag.label}-${index}`}
           data-testid={tag.testId}
           role="listitem"
-          className="rounded-full border border-slate-600/80 bg-[#0f172a] px-2.5 py-0.5 font-mono text-xs font-medium text-[#94a3b8] shadow-[inset_0_1px_0_rgb(255_255_255_/0.04)]"
+          className="rounded-full border border-slate-600/80 bg-[#0f172a] px-2.5 py-0.5 font-mono text-xs font-medium text-[#94a3b8] shadow-lg"
         >
           {tag.label}
         </li>

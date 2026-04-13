@@ -1,7 +1,7 @@
 "use client";
 
 import type { TodoCardTask } from "../types";
-import { useTimeRemaining } from "../hooks/useTimeRemaining";
+import { useUpdateStatus } from "../hooks/updateStatus";
 import { useTodoCompletion } from "../hooks/useTodoCompletion";
 import { TodoCardActions } from "./TodoCardActions";
 import { TodoCardDescription } from "./TodoCardDescription";
@@ -16,7 +16,7 @@ type TodoCardProps = {
 };
 
 export function TodoCard({ task }: TodoCardProps) {
-  const { label: timeLabel, variant: timeVariant } = useTimeRemaining(task.dueDate);
+  const { label: timeLabel, variant: timeVariant } = useUpdateStatus();
   const { complete, setComplete, statusLabel, statusAria } = useTodoCompletion();
 
   return (

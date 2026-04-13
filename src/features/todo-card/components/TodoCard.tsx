@@ -9,6 +9,7 @@ import { TodoCardDueRow } from "./TodoCardDueRow";
 import { TodoCardHeader } from "./TodoCardHeader";
 import { TodoCardStatusRow } from "./TodoCardStatusRow";
 import { TodoCardTags } from "./TodoCardTags";
+import { formatDate } from "../lib/formatDate";
 
 type TodoCardProps = {
   task: TodoCardTask;
@@ -33,7 +34,7 @@ export function TodoCard({ task }: TodoCardProps) {
       />
       <TodoCardDescription text={task.description} />
       <TodoCardDueRow
-        dueDisplay={task.dueDisplay}
+        dueDisplay={formatDate(task.dueDate)}
         dueDateTime={task.dueDateTime}
         timeLabel={timeLabel}
         timeVariant={timeVariant}

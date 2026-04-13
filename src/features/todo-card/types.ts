@@ -12,7 +12,6 @@ export type TodoCardTask = {
   title: string;
   description: string;
   dueDate: Date;
-  dueDisplay: string;
   dueDateTime: string;
   priority: TodoPriority;
   tags: TodoTag[];

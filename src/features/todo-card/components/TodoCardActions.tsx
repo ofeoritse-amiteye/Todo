@@ -1,4 +1,3 @@
-
 import { EditIcon, TrashIcon } from "./icons";
 
 type TodoCardActionsProps = {
@@ -12,19 +11,23 @@ export function TodoCardActions({ taskId }: TodoCardActionsProps) {
         type="button"
         data-testid="test-todo-edit-button"
         aria-label="Edit task"
-        onClick={() => (window.alert("Edit task clicked"))}
-        className="inline-flex items-center gap-1.5 rounded-lg border-[0.5px] border-zinc-200 bg-white px-3.5 py-1.5 text-[13px] font-medium text-zinc-600 transition-colors hover:bg-zinc-50 hover:text-zinc-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1D9E75]"
+        onClick={() => {
+          window.alert(`Edit task: ${taskId}`);
+        }}
+        className="inline-flex items-center gap-1.5 rounded-lg border border-slate-600 bg-[#0f172a] px-3.5 py-1.5 text-[13px] font-medium text-[#e2e8f0] transition-colors hover:border-slate-500 hover:bg-slate-800/90 hover:text-[#f8fafc] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0f6e56]"
       >
         <EditIcon />
         Edit
       </button>
-      
+
       <button
         type="button"
         data-testid="test-todo-delete-button"
         aria-label="Delete task"
-        onClick={() => (window.alert("Delete task clicked"))}
-        className="inline-flex items-center gap-1.5 rounded-lg border-[0.5px] border-zinc-200 bg-white px-3.5 py-1.5 text-[13px] font-medium text-zinc-600 transition-colors hover:border-[#F09595] hover:bg-[#FCEBEB] hover:text-[#791F1F] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1D9E75]"
+        onClick={() => {
+          window.alert(`Delete task: ${taskId}`);
+        }}
+        className="inline-flex items-center gap-1.5 rounded-lg border border-slate-600 bg-[#0f172a] px-3.5 py-1.5 text-[13px] font-medium text-[#e2e8f0] transition-colors hover:border-rose-900/60 hover:bg-[#fecaca]/15 hover:text-[#fecaca] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0f6e56]"
       >
         <TrashIcon />
         Delete

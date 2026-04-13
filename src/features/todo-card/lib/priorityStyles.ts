@@ -1,7 +1,8 @@
 import type { TodoPriority } from "../types";
 
+/** WCAG AA–friendly pairs on dark card surfaces */
 export const priorityBadgeClass: Record<TodoPriority, string> = {
-  high: "border-[0.5px] border-[#F09595] bg-[#FCEBEB] text-[#791F1F]",
-  medium: "border-[0.5px] border-[#FAC775] bg-[#FAEEDA] text-[#633806]",
-  low: "border-[0.5px] border-[#C0DD97] bg-[#EAF3DE] text-[#27500A]",
+  high: "border border-red-200/80 bg-[#fecaca] text-[#7f1d1d]",
+  medium: "border border-amber-200/80 bg-[#fde68a] text-[#78350f]",
+  low: "border border-green-200/80 bg-[#bbf7d0] text-[#14532d]",
 };

@@ -16,12 +16,12 @@ export function TodoCardDueRow({
   timeVariant,
 }: TodoCardDueRowProps) {
   return (
-    <div className="mb-1.5 flex flex-wrap items-center gap-1.5 text-[13px] text-zinc-500">
-      <CalendarIcon className="size-3.5 shrink-0 opacity-50" />
+    <div className="mb-1.5 flex flex-wrap items-center gap-1.5 text-[13px] text-[#94a3b8]">
+      <CalendarIcon className="size-3.5 shrink-0 text-[#94a3b8] opacity-80" />
       <time
         data-testid="test-todo-due-date"
         dateTime={dueDateTime}
-        className="font-medium text-zinc-800"
+        className="font-medium text-[#e2e8f0]"
       >
         {dueDisplay}
       </time>

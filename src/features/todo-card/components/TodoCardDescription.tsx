@@ -4,7 +4,7 @@ type TodoCardDescriptionProps = {
 
 export function TodoCardDescription({ text }: TodoCardDescriptionProps) {
   return (
-    <p data-testid="test-todo-description" className="mb-4 text-sm leading-relaxed text-zinc-600">
+    <p data-testid="test-todo-description" className="mb-4 text-sm leading-relaxed text-[#94a3b8]">
       {text}
     </p>
   );

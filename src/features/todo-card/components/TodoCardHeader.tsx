@@ -30,13 +30,13 @@ export function TodoCardHeader({
             aria-label="Mark task as complete"
             checked={complete}
             onChange={(e) => onCompleteChange(e.target.checked)}
-            className="size-[18px] cursor-pointer rounded border-zinc-300 accent-[#1D9E75] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1D9E75]"
+            className="size-[18px] cursor-pointer rounded border-slate-500 bg-[#0f172a] accent-[#0f6e56] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0f6e56]"
           />
         </label>
         <h2
           data-testid="test-todo-title"
           className={`text-[17px] font-semibold leading-snug transition-all duration-200 ${
-            complete ? "text-zinc-400 line-through decoration-zinc-300" : "text-zinc-900"
+            complete ? "text-[#94a3b8] line-through decoration-slate-500" : "text-[#f1f5f9]"
           }`}
         >
           {title}

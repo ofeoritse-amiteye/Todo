@@ -193,7 +193,7 @@ body {
 
 @media (min-width: 1024px) {
   .todo-card__top {
-    flex-direction: row;
+    flex-direction: column;
     align-items: flex-start;
     justify-content: space-between;
     gap: 1rem 1.5rem;

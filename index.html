@@ -3,256 +3,159 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Todo Card : Stage 1A</title>
+    <title>Profile Card — Stage 1B</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap"
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=DM+Mono:wght@400;500&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/profile.css" />
   </head>
   <body>
-    <main class="preview-shell">
-      <div class="preview-bg" aria-hidden="true"></div>
-      <div class="preview-inner">
-        <header class="preview-header">
-          <p class="preview-eyebrow">Task card</p>
-          <h1 class="preview-title">Today’s focus</h1>
-          <p class="preview-subtitle">
-            A single highlighted task with due date, tags, and quick actions
-          </p>
+    <a class="skip-link" href="#profile-main">Skip to profile card</a>
+
+    <main id="profile-main" class="profile-page">
+      <div class="profile-page__bg" aria-hidden="true"></div>
+      <div class="profile-page__inner">
+        <header class="profile-page__intro">
+          <p class="profile-page__eyebrow">Fez the Dev</p>
+          <h1 class="profile-page__title">Stage 1B : Testable profile card</h1>
         </header>
 
-        <article
-          data-testid="test-todo-card"
-          class="todo-card"
-          id="todo-card"
-          role="region"
-          aria-label="Todo task card"
-        >
-          <div class="todo-view" id="todo-view">
-            <div class="todo-card__top">
-              <div class="todo-card__header-row">
-                <label class="todo-card__check-label" for="todo-complete-toggle">
-                  <input
-                    type="checkbox"
-                    id="todo-complete-toggle"
-                    data-testid="test-todo-complete-toggle"
-                    aria-label="Mark task as complete"
-                  />
-                </label>
-                <h2 data-testid="test-todo-title" class="todo-card__title" id="todo-title-display">
-                  Redesign the onboarding flow for mobile users
+        <article data-testid="test-profile-card" class="profile-card" aria-labelledby="profile-name">
+          <div class="profile-card__grid">
+            <figure class="profile-card__figure">
+              <img
+                data-testid="test-user-avatar"
+                id="profile-avatar-img"
+                class="profile-card__avatar"
+                src="images/ME.jpg"
+                width="200"
+                height="200"
+                alt="photo"
+                decoding="async"
+              />
+            </figure>
+
+            <div class="profile-card__content">
+              <header class="profile-card__header">
+                <h2 id="profile-name" data-testid="test-user-name" class="profile-card__name">
+                  Fez the Dev
                 </h2>
-                <div class="todo-card__priority-wrap">
-                  <span
-                    class="todo-card__priority-indicator"
-                    data-testid="test-todo-priority-indicator"
-                    id="todo-priority-indicator"
-                    aria-hidden="true"
-                  ></span>
-                  <span
-                    class="todo-card__priority-badge"
-                    data-testid="test-todo-priority"
-                    id="todo-priority-badge"
-                    aria-label="Priority: High"
-                  >
-                    High
-                  </span>
+              </header>
+
+              <p data-testid="test-user-bio" class="profile-card__bio">
+                Product-minded frontend engineer who cares about inclusive design, predictable state,
+                and components that behave well under test. Based in Lagos.
+              </p>
+
+              <div class="profile-card__time-row">
+                <span class="profile-card__time-label" id="profile-time-label">Current time (ms)</span>
+                <span
+                  data-testid="test-user-time"
+                  id="profile-user-time"
+                  class="profile-card__time"
+                  aria-labelledby="profile-time-label"
+                  aria-live="polite"
+                  aria-atomic="true"
+                ></span>
+              </div>
+
+              <nav class="profile-card__social-nav" aria-label="Social media profiles">
+                <ul data-testid="test-user-social-links" class="profile-card__social-list">
+                  <li>
+                    <a
+                      data-testid="test-user-social-twitter"
+                      class="profile-card__link"
+                      href="https://twitter.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Twitter / X
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      data-testid="test-user-social-github"
+                      class="profile-card__link"
+                      href="https://github.com/ofeoritse-amiteye"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      GitHub
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      data-testid="test-user-social-linkedin"
+                      class="profile-card__link"
+                      href="https://www.linkedin.com/in/ofeoritse-amiteye-760527263/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      LinkedIn
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+
+              <section class="profile-card__section" aria-labelledby="hobbies-title">
+                <h3 id="hobbies-title" class="profile-card__section-title">Hobbies</h3>
+                <ul data-testid="test-user-hobbies" class="profile-card__list">
+                  <li>Playing Basketball</li>
+                  <li>Paiting & Sketching</li>
+                  <li>Learning new things</li>
+                </ul>
+              </section>
+
+              <section class="profile-card__section" aria-labelledby="dislikes-title">
+                <h3 id="dislikes-title" class="profile-card__section-title">Dislikes</h3>
+                <ul data-testid="test-user-dislikes" class="profile-card__list">
+                  <li>Crowds</li>
+                  <li>Strange, weird people</li>
+                  <li>unhygienic places</li>
+                </ul>
+              </section>
+
+              <div class="profile-card__media-tools">
+                <div class="profile-card__field">
+                  <label class="profile-card__label" for="avatar-url-input">Avatar image URL</label>
+                  <input
+                    id="avatar-url-input"
+                    class="profile-card__input"
+                    type="url"
+                    name="avatarUrl"
+                    placeholder="https://example.com/photo.jpg"
+                    autocomplete="photo"
+                    aria-describedby="avatar-url-hint"
+                  />
+                  <p id="avatar-url-hint" class="profile-card__hint">
+                    Paste a direct image URL, or use the file picker below.
+                  </p>
+                  <button type="button" class="profile-card__btn" id="avatar-url-apply">
+                    Apply URL to avatar
+                  </button>
+                </div>
+                <div class="profile-card__field">
+                  <label class="profile-card__label" for="avatar-file-input">Upload profile photo</label>
+                  <input
+                    id="avatar-file-input"
+                    class="profile-card__file"
+                    type="file"
+                    accept="image/*"
+                    aria-describedby="avatar-file-hint"
+                  />
+                  <p id="avatar-file-hint" class="profile-card__hint">
+                    Chooses a local image file; preview updates the avatar above.
+                  </p>
                 </div>
               </div>
-
-              <div class="todo-card__control-row">
-                <label class="todo-field-label" for="todo-status-control">Status</label>
-                <select
-                  id="todo-status-control"
-                  data-testid="test-todo-status-control"
-                  class="todo-card__status-select"
-                  aria-label="Task status"
-                >
-                  <option value="Pending">Pending</option>
-                  <option value="In Progress">In Progress</option>
-                  <option value="Done">Done</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="todo-card__due-block">
-              <svg class="todo-card__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                <path
-                  fill="currentColor"
-                  d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zM5 8V6h14v2H5z"
-                />
-              </svg>
-              <time data-testid="test-todo-due-date" id="todo-due-date" datetime="2026-04-16T23:59:00"
-                >16 April, 2026</time
-              >
-              <span
-                data-testid="test-todo-time-remaining"
-                id="todo-time-remaining"
-                class="todo-card__time-pill"
-                aria-live="polite"
-                >Due in 2 days</span
-              >
-              <span
-                data-testid="test-todo-overdue-indicator"
-                id="todo-overdue-indicator"
-                class="todo-card__overdue-badge"
-                hidden
-                aria-live="polite"
-                >Overdue</span
-              >
-            </div>
-
-            <div class="todo-card__desc-block">
-              <div
-                data-testid="test-todo-collapsible-section"
-                id="todo-collapsible-section"
-                class="todo-card__collapsible"
-              >
-                <p data-testid="test-todo-description" id="todo-description-display" class="todo-card__description">
-                  Review current onboarding screens, identify friction points, and deliver updated
-                  wireframes with improved copy and CTA placement.
-                </p>
-              </div>
-              <button
-                type="button"
-                data-testid="test-todo-expand-toggle"
-                id="todo-expand-toggle"
-                class="todo-card__expand-btn"
-                aria-expanded="false"
-                aria-controls="todo-collapsible-section"
-                hidden
-              >
-                Expand
-              </button>
-            </div>
-
-            <div class="todo-card__status-display">
-              <svg class="todo-card__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                <circle cx="12" cy="12" r="8" fill="currentColor" />
-              </svg>
-              <span
-                data-testid="test-todo-status"
-                id="todo-status-display"
-                class="todo-card__status-pill"
-                aria-label="Status: In Progress"
-                >In Progress</span
-              >
-            </div>
-
-            <div class="todo-card__divider" role="presentation"></div>
-
-            <ul data-testid="test-todo-tags" class="todo-card__tags" role="list" aria-label="Tags" id="todo-tags-list">
-              <li data-testid="test-todo-tag-work" role="listitem" class="todo-card__tag">work</li>
-              <li data-testid="test-todo-tag-urgent" role="listitem" class="todo-card__tag">urgent</li>
-              <li role="listitem" class="todo-card__tag">design</li>
-            </ul>
-
-            <div class="todo-card__actions">
-              <button
-                type="button"
-                data-testid="test-todo-edit-button"
-                id="todo-edit-button"
-                class="todo-card__btn todo-card__btn--secondary"
-                aria-label="Edit task"
-              >
-                <svg class="todo-card__btn-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                  <path
-                    fill="currentColor"
-                    d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a1 1 0 0 0 0-1.41l-2.34-2.34a1 1 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"
-                  />
-                </svg>
-                Edit
-              </button>
-              <button
-                type="button"
-                data-testid="test-todo-delete-button"
-                class="todo-card__btn todo-card__btn--danger"
-                aria-label="Delete task"
-                id="todo-delete-button"
-              >
-                <svg class="todo-card__btn-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                  <path
-                    fill="currentColor"
-                    d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
-                  />
-                </svg>
-                Delete
-              </button>
             </div>
           </div>
-
-          <form
-            data-testid="test-todo-edit-form"
-            id="todo-edit-form"
-            class="todo-edit-form"
-            hidden
-            aria-hidden="true"
-          >
-            <div class="todo-edit-form__fields">
-              <div class="todo-edit-form__field">
-                <label class="todo-field-label" for="todo-edit-title-input">Title</label>
-                <input
-                  type="text"
-                  id="todo-edit-title-input"
-                  data-testid="test-todo-edit-title-input"
-                  class="todo-edit-form__input"
-                  required
-                />
-              </div>
-              <div class="todo-edit-form__field">
-                <label class="todo-field-label" for="todo-edit-description-input">Description</label>
-                <textarea
-                  id="todo-edit-description-input"
-                  data-testid="test-todo-edit-description-input"
-                  class="todo-edit-form__textarea"
-                  rows="4"
-                ></textarea>
-              </div>
-              <div class="todo-edit-form__row">
-                <div class="todo-edit-form__field">
-                  <label class="todo-field-label" for="todo-edit-priority-select">Priority</label>
-                  <select
-                    id="todo-edit-priority-select"
-                    data-testid="test-todo-edit-priority-select"
-                    class="todo-edit-form__select"
-                  >
-                    <option value="low">Low</option>
-                    <option value="medium">Medium</option>
-                    <option value="high">High</option>
-                  </select>
-                </div>
-                <div class="todo-edit-form__field">
-                  <label class="todo-field-label" for="todo-edit-due-date-input">Due date</label>
-                  <input
-                    type="datetime-local"
-                    id="todo-edit-due-date-input"
-                    data-testid="test-todo-edit-due-date-input"
-                    class="todo-edit-form__input"
-                  />
-                </div>
-              </div>
-            </div>
-            <div class="todo-edit-form__actions">
-              <button type="submit" data-testid="test-todo-save-button" class="todo-card__btn todo-card__btn--primary" id="todo-save-button">
-                Save
-              </button>
-              <button
-                type="button"
-                data-testid="test-todo-cancel-button"
-                class="todo-card__btn todo-card__btn--secondary"
-                id="todo-cancel-button"
-              >
-                Cancel
-              </button>
-            </div>
-          </form>
-
         </article>
       </div>
     </main>
-    <script src="js/app.js" defer></script>
+    <script src="js/profile.js" defer></script>
   </body>
 </html>

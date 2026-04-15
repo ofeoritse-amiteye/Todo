@@ -1,58 +1,55 @@
-# Todo Card — Stage 1 (plain HTML / CSS / JS)
+# Frontend Wizards — Stage 1B: Testable profile card
 
-Single-page demo of one interactive todo card: editable fields, status and priority controls, collapsible description, live due-time copy, and accessibility-oriented markup. There is **no** React or Next.js; open `index.html` in a browser or serve the folder statically.
+Static **HTML, CSS, and vanilla JavaScript** only (no React, no Next.js). The site entry point is **`index.html`**, which implements the accessible, responsive **profile card** with stable `data-testid` hooks for automated tests.
+
+## Project layout
+
+```text
+ToDo/
+index.html          # Profile card (site root)
+css/
+    profile.css     # Layout, breakpoints, focus styles
+js/
+    profile.js      # Epoch time (ms), avatar URL + file upload
+images/
+    ME.jpg          # Default avatar image
+README.md   
 
 ## Run locally
 
-- **Direct file**: double-click `index.html`, or open it from the browser (some browsers restrict `datetime-local` or ES modules; this project uses deferred classic script — no modules).
-- **Static server** (recommended): from this folder run any static server, for example:
+- **Open the file**: double-click `index.html` or open it from your browser.
+- **Static server** (recommended for consistent behavior with assets and links):
 
-```bash
-npx --yes serve .
-```
 
-Then visit the URL shown (often `http://localhost:3000`).
+## Stage 1B — Profile card (current)
 
-## Deploy (live URL)
+| Area | Details |
+|------|---------|
+| **Semantics** | `<article data-testid="test-profile-card">`, `<figure>` + `<img>`, name in `<h2>`, bio in `<p>`, `<nav>` + `<ul>` for social links, `<section>` + `<ul>` for hobbies and dislikes |
+| **Test IDs** | `test-profile-card`, `test-user-name`, `test-user-bio`, `test-user-time`, `test-user-avatar`, `test-user-social-links`, `test-user-social-twitter` / `-github` / `-linkedin`, `test-user-hobbies`, `test-user-dislikes` |
+| **Time** | `test-user-time` shows `Date.now()` in **milliseconds**, updated every **750ms** (within the 500–1000ms guidance), with `aria-live="polite"` and `aria-atomic="true"` |
+| **Avatar** | Default `images/ME.jpg`; optional **image URL** (Apply) or **file upload** (object URL); `data-testid` stays on the `<img>` |
+| **Social** | Links open in a new tab with `target="_blank"` and `rel="noopener noreferrer"` |
+| **Layout** | Mobile: stacked; **768px+**: avatar left, content right; long text wraps without breaking the card |
 
-Build a **live URL** by hosting this folder on GitHub Pages, Netlify, Vercel (static), Cloudflare Pages, or similar. Upload the contents of `ToDo/` (at minimum `index.html`, `css/`, `js/`) so `index.html` is the site root.
+## Deploy / submission
 
-Replace this line with your real links when you submit:
+Host this folder on GitHub Pages, Netlify, Cloudflare Pages, or similar so `index.html` is the site root. Include `css/`, `js/`, and `images/` in the deploy.
 
 - **Live URL**: _add after deploy_
 - **GitHub repo**: _add your repository URL_
 
-## What changed from Stage 0
+## Accessibility
 
-- **Stack**: Replaced the Next.js + React app with **plain HTML, CSS, and JavaScript** files (`index.html`, `css/styles.css`, `js/app.js`).
-- **Editing**: Edit toggles a real form with labeled fields; Save applies changes, Cancel restores a snapshot taken when Edit opened; focus returns to the Edit control when the form closes. Tab cycles inside the form (simple focus loop).
-- **Status**: `Pending`, `In Progress`, and `Done` are available from a `<select>`; the checkbox, status pill, and dropdown stay in sync (checking completes the task; clearing completion sets **Pending**).
-- **Priority**: Left accent on the card, a colored dot (`test-todo-priority-indicator`), and the existing priority badge (`test-todo-priority`) reflect Low / Medium / High.
-- **Description**: Long copy is **collapsed** by default (line clamp); **Show more / Show less** toggles with `aria-expanded` and `aria-controls` pointing at the collapsible section id.
-- **Time**: Relative strings are computed from the due datetime (e.g. “Due in 2 days”, “Due in 45 minutes”, “Overdue by 1 hour”). The label updates on an interval (45 seconds, within the 30–60s band). When status is **Done**, the pill shows **Completed** and the interval stops.
-- **Overdue**: An explicit “Overdue” badge appears when the task is overdue and not completed; the card gets a stronger red border treatment.
-
-## Design decisions
-
-- **One card, one state object** in `app.js` keeps behavior predictable and matches “single component” scope.
-- **Status source of truth**: Internal `state.status`; checkbox and `<select>` are updated from it and user actions write back through small sync helpers.
-- **Collapse**: Character threshold (140) plus CSS line clamp keeps layout stable without measuring pixels.
-- **Datetime**: Due date is edited with `datetime-local`; values are stored as local wall-clock strings consistent with the original demo.
+- Skip link to main content; interactive controls use visible **`:focus-visible`** outlines.
+- Avatar includes an **`alt`** attribute; social links have visible text (accessible names).
+- Live region on the time readout for periodic updates.
 
 ## Known limitations
 
-- **Delete** still uses `window.alert` like the Stage 0 demo (no persistence).
-- **Tags** are not part of the edit form; they stay as defined in initial state unless you change the code.
-- The old **`todo/`** Next.js project may still appear on disk if files were locked (e.g. dev server or antivirus). Close any running `next dev` processes and delete `todo/` manually if removal failed.
+- Profile data (name, bio, links, lists) is **static in HTML** unless you extend `profile.js` to load JSON or a backend.
+- **Delete** / persistence from earlier todo demos are not part of this page.
 
-## Accessibility notes
+## Related: Stage 1A — Todo card
 
-- Edit fields use `<label for="…">` tied to inputs.
-- Status `<select>` has `aria-label="Task status"` (and a visible “Status” label).
-- Expand control uses `aria-expanded` and `aria-controls` matching `id="todo-collapsible-section"`.
-- Live region: `aria-live="polite"` on the time-remaining span (and overdue badge) for periodic updates.
-- Keyboard tab order in read mode follows: **checkbox → status → expand (when shown) → Edit → Delete**. In edit mode, focus is kept within the form via Tab wrapping; closing returns focus to **Edit**.
-
-## `data-testid` checklist
-
-Stage 0 ids are preserved where applicable; Stage 1 adds the new ids required by the brief (edit form, status control, priority indicator, expand/collapse, overdue indicator, etc.). Open `index.html` and `js/app.js` to verify names match your test suite.
+An earlier assignment built a **single interactive todo card** (edit mode, status/priority, collapsible description, due-time copy) as plain HTML/CSS/JS. That implementation used separate files such as `css/styles.css` and `js/app.js` with `data-testid="test-todo-*"`. It is **not** included in the default layout above; check your git branches or history if you need that bundle alongside this profile page.
